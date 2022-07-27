@@ -109,6 +109,7 @@ export default {
           <input type="text" v-model="editProduct.inventory" />
         </p>
         <button v-on:click="updateProduct(editProduct)">Update Product</button>
+        <button v-on:click="destroyProduct(currentProduct)">Delete Product</button>
         <button>Close</button>
       </form>
     </dialog>
@@ -123,6 +124,8 @@ img {
   max-width: 250px;
 }
 .errors {
-  color: red;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+  background-clip: text;
+  color: transparent;
 }
 </style>
