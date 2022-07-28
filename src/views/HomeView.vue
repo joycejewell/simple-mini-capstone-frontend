@@ -29,11 +29,19 @@ export default {
     showProduct: function (product) {
       console.log(product);
       this.currentProduct = product;
+      this.editProduct = product;
       document.querySelector("#product-info").showModal();
     },
     updateProduct: function (productToEdit) {
-      axios.patch("http://localhost:3000/products" + productToEdit.id + ".json", productToEdit).then((response) => {
+      axios.patch("http://localhost:3000/products/" + productToEdit.id + ".json", productToEdit).then((response) => {
         console.log(response.data);
+      });
+    },
+    destroyProduct: function () {
+      axios.delete(`http://localhost:3000/products/${product.id}`).then((response) => {
+        console.log(response.data);
+        var index = this.product.indexOf(product);
+        this.product.splice(index, 1);
       });
     },
     createProduct: function () {
